@@ -1,0 +1,13 @@
+# HRS data may not be redistributed: keep all data files out of the repository
+data/
+*.dta
+*.sas7bdat
+*.sav
+*.parquet
+*.csv
+*.xlsx
+
+# Python / notebooks
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
