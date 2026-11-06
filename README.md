@@ -21,6 +21,6 @@ code/       analysis notebooks, run in numerical order
 ```
 
 ## How to run
-1. `code/01_sample_construction.ipynb` — builds the analysis sample and the attrition table
+1. `code/01_sample_construction.ipynb` — builds the analysis sample (incl. job-history verification of the pre-claiming job) and the attrition table
 
 Random seeds are fixed in each notebook.
