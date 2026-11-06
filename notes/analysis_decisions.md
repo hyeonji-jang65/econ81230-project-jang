@@ -26,7 +26,7 @@ Items marked **[pending]** are not yet implemented in code.
 |---|---|---|
 | 1 | Cohort | Keep only HRS, War Babies, Early Baby Boomers (`hacohort` 3–5) |
 | 2 | t1–t0 gap | Keep gaps > 3 waves (early retirement with deferred DB benefit is common) |
-| 3 | Outcome | Log real **monthly** pension, mean of t0 and t0+1; CPI-U, 2022 dollars; income deflated with CPI of (interview year − 1) |
+| 3 | Outcome | Log real **monthly** pension (`r#ipen`, pension only, excl. annuities), mean of t0 and t0+1; CPI-U (FRED CPIAUCSL annual average, `reference/CPIAUCSL.csv`), 2022 dollars; income deflated with CPI of (interview year `r#iwendy` − 1) |
 | 4 | RAND-imputed outcome | Keep in main sample |
 | 5 | Outliers | Drop top and bottom 1% of the outcome, separately for DB and DC |
 | 6 | Lump sums / non-annuitized DC | Out of scope (interest is post-retirement cash flow); mention in text only |
@@ -41,9 +41,16 @@ Items marked **[pending]** are not yet implemented in code.
 
 - [ ] Restrict t1–t0 gap to ≤ 3 waves
 - [ ] Outcome from t0+1 only (first-wave income may cover a partial year of receipt)
-- [ ] Exclude respondents whose outcome is RAND-imputed
+- [ ] Exclude respondents whose outcome is RAND-imputed (flag `r#ifpen` at t0 / t0+1, exported as `ifpen_t0`, `ifpen_t0n`)
 - [ ] Multiple DB plans allowed (DB)
 - [ ] Single DC plan only (DC)
 - [ ] Exclude the respondent flagged by the new-employer tenure check
 - [ ] Sample without job-history verification
 - [ ] Exclude SSDI / disability recipients (reference code drops them)
+
+## 4. Variable notes (checked against the RAND codebook)
+
+- Occupation/industry: current-job codes `r#jcocc` (1980 census, waves 1–16), `r#jcoccb` (2000, waves 7–16), `r#jcoccc` (2010, waves 10–16); industry `r#jcind` / `r#jcindb` (2002) / `r#jcindc` (2007). The reference code uses `r#jlocc` (longest job); we use the current job at t1.
+- Cognition: `r#cog27` (27-point, mode-adjusted, waves 3–15) instead of `r#cogtot` (waves 3–13 only).
+- `h#atotb` is labelled "Total of all assets" in the codebook.
+
