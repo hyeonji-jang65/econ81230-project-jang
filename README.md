@@ -21,6 +21,10 @@ code/       analysis notebooks, run in numerical order
 ```
 
 ## How to run
-1. `code/01_sample_construction.ipynb` — builds the analysis sample (incl. job-history verification of the pre-claiming job) and the attrition table
+1. `code/01_sample_construction.ipynb` — builds the analysis sample (incl. job-history verification of the pre-claiming job) the outcome and the attrition table
+2. `code/02_features.ipynb` — extracts and preprocesses the common and extended feature sets (CPI-U, 2022 dollars; previous-wave fill)
+3. `code/03_descriptives.ipynb` — descriptive statistics by plan type, before and after the previous-wave fill (CSV and LaTeX)
+
+Decisions and robustness candidates are logged in `notes/analysis_decisions.md`.
 
 Random seeds are fixed in each notebook.
